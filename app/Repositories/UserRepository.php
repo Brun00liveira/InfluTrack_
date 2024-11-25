@@ -2,15 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
 use App\Models\PasswordResetToken;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Collection;
 
 class UserRepository
 {
     protected $user;
+
     protected $passwordResetToken;
 
     public function __construct(User $user, PasswordResetToken $passwordResetToken)
@@ -21,9 +21,6 @@ class UserRepository
 
     /**
      * Cria um novo usuário.
-     *
-     * @param array $data
-     * @return User
      */
     public function create(array $data): User
     {
@@ -37,15 +34,12 @@ class UserRepository
 
     /**
      * Realiza o login de um usuário.
-     *
-     * @param array $credentials
-     * @return User|null
      */
     public function login(array $credentials): ?User
     {
         $user = $this->user->where('email', $credentials['email'])->first();
 
-        if (!$user || !Hash::check($credentials['password'], $user->password)) {
+        if (! $user || ! Hash::check($credentials['password'], $user->password)) {
             return null;
         }
 
@@ -54,9 +48,6 @@ class UserRepository
 
     /**
      * Realiza o logout de um usuário.
-     *
-     * @param User $user
-     * @return bool
      */
     public function logout(User $user): bool
     {
@@ -66,10 +57,9 @@ class UserRepository
     /**
      * Envia um link para resetar a senha do usuário.
      *
-     * @param array $data
      * @return \Illuminate\Contracts\Auth\PasswordBroker|string
      */
-    public function sendResetLink(array $data): String
+    public function sendResetLink(array $data): string
     {
         return Password::sendResetLink(['email' => $data['email']]);
     }
@@ -77,10 +67,9 @@ class UserRepository
     /**
      * Reseta a senha de um usuário.
      *
-     * @param array $data
      * @return \Illuminate\Contracts\Auth\PasswordBroker|string
      */
-    public function resetPassword(array $data): String
+    public function resetPassword(array $data): string
     {
         return Password::reset($data, function (User $user, $password) {
             $user->forceFill([

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\RegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Services\UserService;
-
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Request;
 
@@ -22,9 +21,6 @@ class AuthController extends Controller
 
     /**
      * Realiza o login do usuário.
-     *
-     * @param LoginRequest $request
-     * @return JsonResponse
      */
     public function login(LoginRequest $request): JsonResponse
     {
@@ -32,7 +28,7 @@ class AuthController extends Controller
 
         $user = $this->userService->login($credentials);
 
-        if (!$user) {
+        if (! $user) {
             return response()->json(['message' => 'Credenciais inválidas'], 401);
         }
 
@@ -43,9 +39,6 @@ class AuthController extends Controller
 
     /**
      * Realiza o registro de um novo usuário.
-     *
-     * @param RegisterRequest $request
-     * @return JsonResponse
      */
     public function register(RegisterRequest $request): JsonResponse
     {
@@ -58,9 +51,6 @@ class AuthController extends Controller
 
     /**
      * Realiza o logout do usuário.
-     *
-     * @param Request $request
-     * @return JsonResponse
      */
     public function logout(Request $request): JsonResponse
     {
@@ -77,8 +67,7 @@ class AuthController extends Controller
     /**
      * Envia um link de redefinição de senha para o e-mail.
      *
-     * @param SendResetLinkRequest $request
-     * @return JsonResponse
+     * @param  SendResetLinkRequest  $request
      */
     public function sendResetLinkEmail(ResetPasswordRequest $request): JsonResponse
     {
@@ -89,9 +78,6 @@ class AuthController extends Controller
 
     /**
      * Realiza a redefinição de senha.
-     *
-     * @param ResetPasswordRequest $request
-     * @return JsonResponse
      */
     public function reset(ResetPasswordRequest $request): JsonResponse
     {

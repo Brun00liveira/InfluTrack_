@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Password;
-use App\Models\User;
 
 class UserService
 {
@@ -17,9 +17,6 @@ class UserService
 
     /**
      * Cria um novo usuário através do repositório.
-     *
-     * @param array $data
-     * @return User
      */
     public function create(array $data): User
     {
@@ -28,9 +25,6 @@ class UserService
 
     /**
      * Realiza o login de um usuário.
-     *
-     * @param array $credentials
-     * @return User|null
      */
     public function login(array $credentials): ?User
     {
@@ -39,9 +33,6 @@ class UserService
 
     /**
      * Realiza o logout de um usuário.
-     *
-     * @param User $user
-     * @return bool
      */
     public function logout(User $user): bool
     {
@@ -50,9 +41,6 @@ class UserService
 
     /**
      * Envia um link para redefinição de senha.
-     *
-     * @param array $data
-     * @return array
      */
     public function sendResetLink(array $data): array
     {
@@ -67,9 +55,6 @@ class UserService
 
     /**
      * Redefine a senha do usuário.
-     *
-     * @param array $data
-     * @return array
      */
     public function resetPassword(array $data): array
     {

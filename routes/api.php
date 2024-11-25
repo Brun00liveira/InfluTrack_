@@ -1,19 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\{
-    AuthController
-};
-
-use App\Http\Controllers\{
-
-    RolePermissionController
-};
-
-
-
-use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\RolePermissionController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::post('/create', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
