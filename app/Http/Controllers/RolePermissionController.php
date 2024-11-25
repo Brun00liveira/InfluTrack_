@@ -19,15 +19,12 @@ class RolePermissionController extends Controller
 
     /**
      * Cria um novo papel (role).
-     *
-     * @param RolePermissionNameRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function createRole(RolePermissionNameRequest $request): \Illuminate\Http\JsonResponse
     {
         $role = $this->rolePermissionService->createRole([
             'name' => $request->name,
-            'guard_name' => 'api'
+            'guard_name' => 'api',
         ]);
 
         return response()->json(['message' => 'Papel criado com sucesso', 'role' => $role], 201);
@@ -35,15 +32,12 @@ class RolePermissionController extends Controller
 
     /**
      * Cria uma nova permissão.
-     *
-     * @param RolePermissionNameRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function createPermission(RolePermissionNameRequest $request): \Illuminate\Http\JsonResponse
     {
         $permission = $this->rolePermissionService->createPermission([
             'name' => $request->name,
-            'guard_name' => 'api'
+            'guard_name' => 'api',
         ]);
 
         return response()->json(['message' => 'Permissão criada com sucesso', 'permission' => $permission], 201);
@@ -51,9 +45,6 @@ class RolePermissionController extends Controller
 
     /**
      * Atribui uma permissão a um papel (role).
-     *
-     * @param RolePermissionRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function assignPermissionToRole(RolePermissionRequest $request): \Illuminate\Http\JsonResponse
     {
@@ -68,9 +59,6 @@ class RolePermissionController extends Controller
 
     /**
      * Atribui um papel a um usuário.
-     *
-     * @param UserRoleRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function assignRoleToUser(UserRoleRequest $request): \Illuminate\Http\JsonResponse
     {
@@ -85,9 +73,6 @@ class RolePermissionController extends Controller
 
     /**
      * Atribui uma permissão a um usuário.
-     *
-     * @param UserPermissionRequest $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function assignPermissionToUser(UserPermissionRequest $request): \Illuminate\Http\JsonResponse
     {

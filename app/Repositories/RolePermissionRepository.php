@@ -2,16 +2,16 @@
 
 namespace App\Repositories;
 
+use App\Models\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
 
 class RolePermissionRepository
 {
     protected $user;
+
     protected $permission;
+
     protected $role;
 
     public function __construct(User $user, Permission $permission, Role $role)
@@ -23,9 +23,6 @@ class RolePermissionRepository
 
     /**
      * Cria um novo papel (role).
-     *
-     * @param array $data
-     * @return Role
      */
     public function createRole(array $data): Role
     {
@@ -34,9 +31,6 @@ class RolePermissionRepository
 
     /**
      * Cria uma nova permissão.
-     *
-     * @param array $data
-     * @return Permission
      */
     public function createPermission(array $data): Permission
     {
@@ -45,10 +39,6 @@ class RolePermissionRepository
 
     /**
      * Atribui uma permissão a um papel.
-     *
-     * @param Role $role
-     * @param string $permission
-     * @return Role
      */
     public function assignPermissionToRole(Role $role, string $permission): Role
     {
@@ -57,9 +47,6 @@ class RolePermissionRepository
 
     /**
      * Obtém um papel pelo nome.
-     *
-     * @param string $name
-     * @return Role|null
      */
     public function getRoleByName(string $name): ?Role
     {
@@ -68,10 +55,6 @@ class RolePermissionRepository
 
     /**
      * Obtém um papel pelo nome e guard.
-     *
-     * @param string $name
-     * @param array $guards
-     * @return Role|null
      */
     public function getRoleByNameAndGuard(string $name, array $guards): ?Role
     {
@@ -82,10 +65,6 @@ class RolePermissionRepository
 
     /**
      * Obtém uma permissão pelo nome e guard.
-     *
-     * @param string $name
-     * @param array $guards
-     * @return Permission|null
      */
     public function getPermissionByNameAndGuard(string $name, array $guards): ?Permission
     {
@@ -96,9 +75,6 @@ class RolePermissionRepository
 
     /**
      * Obtém um usuário pelo ID.
-     *
-     * @param int $userId
-     * @return User|null
      */
     public function getUserById(int $userId): ?User
     {

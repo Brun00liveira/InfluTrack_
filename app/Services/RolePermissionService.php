@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Repositories\RolePermissionRepository;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class RolePermissionService
 {
@@ -18,9 +17,6 @@ class RolePermissionService
 
     /**
      * Cria um novo papel (role).
-     *
-     * @param array $data
-     * @return Role
      */
     public function createRole(array $data): Role
     {
@@ -29,9 +25,6 @@ class RolePermissionService
 
     /**
      * Cria uma nova permissão.
-     *
-     * @param array $data
-     * @return Permission
      */
     public function createPermission(array $data): Permission
     {
@@ -41,8 +34,6 @@ class RolePermissionService
     /**
      * Atribui uma permissão a um papel (role).
      *
-     * @param string $roleName
-     * @param string $permissionName
      * @return bool|null
      */
     public function assignPermissionToRole(string $roleName, string $permissionName): Role
@@ -52,15 +43,12 @@ class RolePermissionService
         if ($role) {
             return $this->rolePermissionRepository->assignPermissionToRole($role, $permissionName);
         }
+
         return null;
     }
 
     /**
      * Atribui um papel (role) a um usuário.
-     *
-     * @param int $userId
-     * @param string $roleName
-     * @return bool
      */
     public function assignRoleToUser(int $userId, string $roleName): bool
     {
@@ -69,17 +57,15 @@ class RolePermissionService
 
         if ($user && $role) {
             $user->assignRole($role);
+
             return true;
         }
+
         return false;
     }
 
     /**
      * Atribui uma permissão a um usuário.
-     *
-     * @param int $userId
-     * @param string $permissionName
-     * @return bool
      */
     public function assignPermissionToUser(int $userId, string $permissionName): bool
     {
@@ -88,8 +74,10 @@ class RolePermissionService
 
         if ($user && $permission) {
             $user->givePermissionTo($permission);
+
             return true;
         }
+
         return false;
     }
 }
