@@ -12,10 +12,10 @@ class RolePermissionController extends Controller
 {
     protected $rolePermissionService;
 
-    public function __construct(RolePermissionService $rolePermissionService)
-    {
-        $this->rolePermissionService = $rolePermissionService;
-    }
+public function __construct(RolePermissionService $rolePermissionService)
+{
+$this->rolePermissionService = $rolePermissionService;
+}
 
     /**
      * Cria um novo papel (role).
