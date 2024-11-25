@@ -17,7 +17,13 @@ class RolePermissionController extends Controller
         $this->rolePermissionService = $rolePermissionService;
     }
 
-    public function createRole(RolePermissionNameRequest $request)
+    /**
+     * Cria um novo papel (role).
+     *
+     * @param RolePermissionNameRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createRole(RolePermissionNameRequest $request): \Illuminate\Http\JsonResponse
     {
         $role = $this->rolePermissionService->createRole([
             'name' => $request->name,
@@ -27,7 +33,13 @@ class RolePermissionController extends Controller
         return response()->json(['message' => 'Papel criado com sucesso', 'role' => $role], 201);
     }
 
-    public function createPermission(RolePermissionNameRequest $request)
+    /**
+     * Cria uma nova permissão.
+     *
+     * @param RolePermissionNameRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createPermission(RolePermissionNameRequest $request): \Illuminate\Http\JsonResponse
     {
         $permission = $this->rolePermissionService->createPermission([
             'name' => $request->name,
@@ -37,7 +49,13 @@ class RolePermissionController extends Controller
         return response()->json(['message' => 'Permissão criada com sucesso', 'permission' => $permission], 201);
     }
 
-    public function assignPermissionToRole(RolePermissionRequest $request)
+    /**
+     * Atribui uma permissão a um papel (role).
+     *
+     * @param RolePermissionRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function assignPermissionToRole(RolePermissionRequest $request): \Illuminate\Http\JsonResponse
     {
         $result = $this->rolePermissionService->assignPermissionToRole($request->role, $request->permission);
 
@@ -48,7 +66,13 @@ class RolePermissionController extends Controller
         return response()->json(['message' => 'Papel não encontrado'], 404);
     }
 
-    public function assignRoleToUser(UserRoleRequest $request)
+    /**
+     * Atribui um papel a um usuário.
+     *
+     * @param UserRoleRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function assignRoleToUser(UserRoleRequest $request): \Illuminate\Http\JsonResponse
     {
         $result = $this->rolePermissionService->assignRoleToUser($request->user_id, $request->role);
 
@@ -59,15 +83,21 @@ class RolePermissionController extends Controller
         return response()->json(['message' => 'Usuário ou papel não encontrado'], 404);
     }
 
-    public function assignPermissionToUser(UserPermissionRequest $request)
+    /**
+     * Atribui uma permissão a um usuário.
+     *
+     * @param UserPermissionRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function assignPermissionToUser(UserPermissionRequest $request): \Illuminate\Http\JsonResponse
     {
-
-        $result = $this->rolePermissionService->assignPermissionToUser($request->user_id, $request->permission); // Corrigir 'role' para 'permission'
+        // Corrigido o nome do campo para 'permission' no comentário
+        $result = $this->rolePermissionService->assignPermissionToUser($request->user_id, $request->permission);
 
         if ($result) {
-            return response()->json(['message' => 'Permissão atribuída ao usuário com sucesso'], 200); // Mensagem de sucesso
+            return response()->json(['message' => 'Permissão atribuída ao usuário com sucesso'], 200);
         }
 
-        return response()->json(['message' => 'Usuário ou permissão não encontrado'], 404); // Mensagem de erro
+        return response()->json(['message' => 'Usuário ou permissão não encontrado'], 404);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\PasswordResetToken;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Collection;
 
 class UserRepository
 {
@@ -18,7 +19,13 @@ class UserRepository
         $this->passwordResetToken = $passwordResetToken;
     }
 
-    public function create(array $data)
+    /**
+     * Cria um novo usuário.
+     *
+     * @param array $data
+     * @return User
+     */
+    public function create(array $data): User
     {
         return $this->user->create([
             'name' => $data['name'],
@@ -28,7 +35,13 @@ class UserRepository
         ]);
     }
 
-    public function login(array $credentials)
+    /**
+     * Realiza o login de um usuário.
+     *
+     * @param array $credentials
+     * @return User|null
+     */
+    public function login(array $credentials): ?User
     {
         $user = $this->user->where('email', $credentials['email'])->first();
 
@@ -39,17 +52,35 @@ class UserRepository
         return $user;
     }
 
-    public function logout($user)
+    /**
+     * Realiza o logout de um usuário.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function logout(User $user): bool
     {
         return $user->currentAccessToken()->delete();
     }
 
-    public function sendResetLink(array $data)
+    /**
+     * Envia um link para resetar a senha do usuário.
+     *
+     * @param array $data
+     * @return \Illuminate\Contracts\Auth\PasswordBroker|string
+     */
+    public function sendResetLink(array $data): String
     {
         return Password::sendResetLink(['email' => $data['email']]);
     }
 
-    public function resetPassword(array $data)
+    /**
+     * Reseta a senha de um usuário.
+     *
+     * @param array $data
+     * @return \Illuminate\Contracts\Auth\PasswordBroker|string
+     */
+    public function resetPassword(array $data): String
     {
         return Password::reset($data, function (User $user, $password) {
             $user->forceFill([

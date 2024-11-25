@@ -7,10 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Services\UserService;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller
 {
@@ -21,7 +20,13 @@ class AuthController extends Controller
         $this->userService = $userService;
     }
 
-    public function login(LoginRequest $request)
+    /**
+     * Realiza o login do usuário.
+     *
+     * @param LoginRequest $request
+     * @return JsonResponse
+     */
+    public function login(LoginRequest $request): JsonResponse
     {
         $credentials = $request->only(['email', 'password']);
 
@@ -36,7 +41,13 @@ class AuthController extends Controller
         return response()->json(['user' => $user, 'token' => $token], 200);
     }
 
-    public function register(RegisterRequest $request)
+    /**
+     * Realiza o registro de um novo usuário.
+     *
+     * @param RegisterRequest $request
+     * @return JsonResponse
+     */
+    public function register(RegisterRequest $request): JsonResponse
     {
         $user = $this->userService->create($request->all());
 
@@ -45,9 +56,16 @@ class AuthController extends Controller
         return response()->json(['user' => $user, 'token' => $token], 201);
     }
 
-    public function logout(Request $request)
+    /**
+     * Realiza o logout do usuário.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function logout(Request $request): JsonResponse
     {
-        $user = $request->user();
+
+        $user = Request::user();
 
         if ($this->userService->logout($user)) {
             return response()->json(['message' => 'Logout realizado com sucesso'], 200);
@@ -56,17 +74,26 @@ class AuthController extends Controller
         return response()->json(['message' => 'Falha ao realizar logout'], 500);
     }
 
-    public function sendResetLinkEmail(Request $request)
+    /**
+     * Envia um link de redefinição de senha para o e-mail.
+     *
+     * @param SendResetLinkRequest $request
+     * @return JsonResponse
+     */
+    public function sendResetLinkEmail(ResetPasswordRequest $request): JsonResponse
     {
-
-        $request->validate(['email' => 'required|email']);
-
         $response = $this->userService->sendResetLink($request->only('email'));
 
         return response()->json(['message' => $response['message']], $response['status']);
     }
 
-    public function reset(ResetPasswordRequest $request)
+    /**
+     * Realiza a redefinição de senha.
+     *
+     * @param ResetPasswordRequest $request
+     * @return JsonResponse
+     */
+    public function reset(ResetPasswordRequest $request): JsonResponse
     {
         $response = $this->userService->resetPassword(
             $request->only('email', 'password', 'password_confirmation', 'token')

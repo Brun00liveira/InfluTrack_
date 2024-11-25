@@ -5,6 +5,8 @@ namespace App\Repositories;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class RolePermissionRepository
 {
@@ -19,44 +21,86 @@ class RolePermissionRepository
         $this->role = $role;
     }
 
-
-    public function createRole(array $data)
+    /**
+     * Cria um novo papel (role).
+     *
+     * @param array $data
+     * @return Role
+     */
+    public function createRole(array $data): Role
     {
         return $this->role->create($data);
     }
 
-    public function createPermission(array $data)
+    /**
+     * Cria uma nova permissão.
+     *
+     * @param array $data
+     * @return Permission
+     */
+    public function createPermission(array $data): Permission
     {
         return $this->permission->create($data);
     }
 
-    public function assignPermissionToRole(Role $role, string $permission)
+    /**
+     * Atribui uma permissão a um papel.
+     *
+     * @param Role $role
+     * @param string $permission
+     * @return Role
+     */
+    public function assignPermissionToRole(Role $role, string $permission): Role
     {
         return $role->givePermissionTo($permission);
     }
 
-    public function getRoleByName(string $name)
+    /**
+     * Obtém um papel pelo nome.
+     *
+     * @param string $name
+     * @return Role|null
+     */
+    public function getRoleByName(string $name): ?Role
     {
         return $this->role->findByName($name, 'api');
     }
 
-    public function getRoleByNameAndGuard(string $name, array $guards)
+    /**
+     * Obtém um papel pelo nome e guard.
+     *
+     * @param string $name
+     * @param array $guards
+     * @return Role|null
+     */
+    public function getRoleByNameAndGuard(string $name, array $guards): ?Role
     {
-
         return $this->role->where('name', $name)
             ->whereIn('guard_name', $guards)
             ->first();
     }
 
-    public function getPermissionByNameAndGuard(string $name, array $guards)
+    /**
+     * Obtém uma permissão pelo nome e guard.
+     *
+     * @param string $name
+     * @param array $guards
+     * @return Permission|null
+     */
+    public function getPermissionByNameAndGuard(string $name, array $guards): ?Permission
     {
         return $this->permission->where('name', $name)
             ->whereIn('guard_name', $guards)
             ->first();
     }
 
-
-    public function getUserById(int $userId)
+    /**
+     * Obtém um usuário pelo ID.
+     *
+     * @param int $userId
+     * @return User|null
+     */
+    public function getUserById(int $userId): ?User
     {
         return $this->user->find($userId);
     }

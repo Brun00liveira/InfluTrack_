@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Password;
+use App\Models\User;
 
 class UserService
 {
@@ -20,24 +21,41 @@ class UserService
      * @param array $data
      * @return User
      */
-    public function create(array $data)
+    public function create(array $data): User
     {
         return $this->userRepository->create($data);
     }
 
-    public function login(array $credentials)
+    /**
+     * Realiza o login de um usuário.
+     *
+     * @param array $credentials
+     * @return User|null
+     */
+    public function login(array $credentials): ?User
     {
         return $this->userRepository->login($credentials);
     }
 
-    public function logout($user)
+    /**
+     * Realiza o logout de um usuário.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function logout(User $user): bool
     {
         return $this->userRepository->logout($user);
     }
 
-    public function sendResetLink(array $data)
+    /**
+     * Envia um link para redefinição de senha.
+     *
+     * @param array $data
+     * @return array
+     */
+    public function sendResetLink(array $data): array
     {
-
         $status = $this->userRepository->sendResetLink($data);
 
         if ($status === Password::RESET_LINK_SENT) {
@@ -47,7 +65,13 @@ class UserService
         return ['message' => 'Não foi possível enviar o link de redefinição.', 'status' => 500];
     }
 
-    public function resetPassword(array $data)
+    /**
+     * Redefine a senha do usuário.
+     *
+     * @param array $data
+     * @return array
+     */
+    public function resetPassword(array $data): array
     {
         $status = $this->userRepository->resetPassword($data);
 

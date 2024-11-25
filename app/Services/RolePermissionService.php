@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Repositories\RolePermissionRepository;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\User;
 
 class RolePermissionService
 {
@@ -15,17 +16,36 @@ class RolePermissionService
         $this->rolePermissionRepository = $rolePermissionRepository;
     }
 
-    public function createRole(array $data)
+    /**
+     * Cria um novo papel (role).
+     *
+     * @param array $data
+     * @return Role
+     */
+    public function createRole(array $data): Role
     {
         return $this->rolePermissionRepository->createRole($data);
     }
 
-    public function createPermission(array $data)
+    /**
+     * Cria uma nova permissão.
+     *
+     * @param array $data
+     * @return Permission
+     */
+    public function createPermission(array $data): Permission
     {
         return $this->rolePermissionRepository->createPermission($data);
     }
 
-    public function assignPermissionToRole(string $roleName, string $permissionName)
+    /**
+     * Atribui uma permissão a um papel (role).
+     *
+     * @param string $roleName
+     * @param string $permissionName
+     * @return bool|null
+     */
+    public function assignPermissionToRole(string $roleName, string $permissionName): Role
     {
         $role = $this->rolePermissionRepository->getRoleByName($roleName);
 
@@ -35,9 +55,15 @@ class RolePermissionService
         return null;
     }
 
-    public function assignRoleToUser(int $userId, string $roleName)
+    /**
+     * Atribui um papel (role) a um usuário.
+     *
+     * @param int $userId
+     * @param string $roleName
+     * @return bool
+     */
+    public function assignRoleToUser(int $userId, string $roleName): bool
     {
-
         $user = $this->rolePermissionRepository->getUserById($userId);
         $role = $this->rolePermissionRepository->getRoleByNameAndGuard($roleName, ['web', 'api']);
 
@@ -48,7 +74,14 @@ class RolePermissionService
         return false;
     }
 
-    public function assignPermissionToUser(int $userId, string $permissionName)
+    /**
+     * Atribui uma permissão a um usuário.
+     *
+     * @param int $userId
+     * @param string $permissionName
+     * @return bool
+     */
+    public function assignPermissionToUser(int $userId, string $permissionName): bool
     {
         $user = $this->rolePermissionRepository->getUserById($userId);
         $permission = $this->rolePermissionRepository->getPermissionByNameAndGuard($permissionName, ['web', 'api']);
