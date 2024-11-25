@@ -73,7 +73,7 @@ class UserRepository
     {
         return Password::reset($data, function (User $user, $password) {
             $user->forceFill([
-    'password' => Hash::make($password)
+                'password' => Hash::make($password),
             ])->save();
         });
     }
