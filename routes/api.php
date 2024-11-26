@@ -32,3 +32,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/users/assign-role', [RolePermissionController::class, 'assignRoleToUser']);
     Route::post('/users/assign-permission', [RolePermissionController::class, 'assignPermissionToUser']);
 });
+
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
