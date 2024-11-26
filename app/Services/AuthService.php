@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use App\Repositories\UserRepository;
+use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 
-class UserService
+class AuthService
 {
-    protected $userRepository;
+    protected $authRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(AuthRepository $authRepository)
     {
-        $this->userRepository = $userRepository;
+        $this->authRepository = $authRepository;
     }
 
     /**
@@ -23,7 +23,7 @@ class UserService
      */
     public function create(array $data): User
     {
-        return $this->userRepository->create($data);
+        return $this->authRepository->create($data);
     }
 
     /**
@@ -34,7 +34,7 @@ class UserService
      */
     public function login(array $credentials): ?User
     {
-        return $this->userRepository->login($credentials);
+        return $this->authRepository->login($credentials);
     }
 
     /**
@@ -45,7 +45,7 @@ class UserService
      */
     public function logout(User $user): bool
     {
-        return $this->userRepository->logout($user);
+        return $this->authRepository->logout($user);
     }
 
     /**
@@ -56,7 +56,7 @@ class UserService
      */
     public function sendResetLink(array $data): array
     {
-        $status = $this->userRepository->sendResetLink($data);
+        $status = $this->authRepository->sendResetLink($data);
 
         if ($status === Password::RESET_LINK_SENT) {
             return ['message' => 'Link de redefinição de senha enviado para seu email.', 'status' => 200];
@@ -73,7 +73,7 @@ class UserService
      */
     public function resetPassword(array $data): array
     {
-        $status = $this->userRepository->resetPassword($data);
+        $status = $this->authRepository->resetPassword($data);
 
         if ($status === Password::PASSWORD_RESET) {
             return ['message' => 'Senha redefinida com sucesso.', 'status' => 200];

@@ -6,18 +6,38 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ResetPasswordRequest;
-use App\Services\UserService;
+use App\Services\AuthService;
+use App\Helpers\ApiResponse;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller
 {
-    protected $userService;
+    protected $authService;
 
-    public function __construct(UserService $userService)
+    public function __construct(AuthService $authService)
     {
-        $this->userService = $userService;
+        $this->authService = $authService;
+    }
+
+    /**
+     * Realiza o registro de um novo usuário.
+     *
+     * @param RegisterRequest $request
+     * @return JsonResponse
+     */
+    public function register(RegisterRequest $request): JsonResponse
+    {
+        $user = $this->authService->create($request->all());
+
+        $token = $user->createToken('Token')->plainTextToken;
+
+        return ApiResponse::success(
+            ['user' => $user, 'token' => $token],
+            'Usuário registrado com sucesso',
+            201
+        );
     }
 
     /**
@@ -30,31 +50,26 @@ class AuthController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
 
-        $user = $this->userService->login($credentials);
+        $user = $this->authService->login($credentials);
 
         if (!$user) {
-            return response()->json(['message' => 'Credenciais inválidas'], 401);
+            return ApiResponse::error(
+
+                'Usuário não encontrado',
+                404
+            );
         }
 
         $token = $user->createToken('Token')->plainTextToken;
 
-        return response()->json(['user' => $user, 'token' => $token], 200);
+        return ApiResponse::success(
+            ['user' => $user, 'token' => $token],
+            'Usuário registrado com sucesso',
+            200
+        );
     }
 
-    /**
-     * Realiza o registro de um novo usuário.
-     *
-     * @param RegisterRequest $request
-     * @return JsonResponse
-     */
-    public function register(RegisterRequest $request): JsonResponse
-    {
-        $user = $this->userService->create($request->all());
 
-        $token = $user->createToken('Token')->plainTextToken;
-
-        return response()->json(['user' => $user, 'token' => $token], 201);
-    }
 
     /**
      * Realiza o logout do usuário.
@@ -67,22 +82,32 @@ class AuthController extends Controller
 
         $user = Request::user();
 
-        if ($this->userService->logout($user)) {
-            return response()->json(['message' => 'Logout realizado com sucesso'], 200);
+        // Tente realizar o logout
+        if ($this->authService->logout($user)) {
+            return ApiResponse::success(
+                [],
+                'Logout realizado com sucesso',
+                200
+
+            );
         }
 
-        return response()->json(['message' => 'Falha ao realizar logout'], 500);
+        return ApiResponse::error(
+            'Falha ao realizar o Logout',
+            401
+        );
     }
+
 
     /**
      * Envia um link de redefinição de senha para o e-mail.
      *
-     * @param SendResetLinkRequest $request
+     * @param ResetPasswordRequest $request
      * @return JsonResponse
      */
     public function sendResetLinkEmail(ResetPasswordRequest $request): JsonResponse
     {
-        $response = $this->userService->sendResetLink($request->only('email'));
+        $response = $this->authService->sendResetLink($request->only('email'));
 
         return response()->json(['message' => $response['message']], $response['status']);
     }
@@ -95,7 +120,7 @@ class AuthController extends Controller
      */
     public function reset(ResetPasswordRequest $request): JsonResponse
     {
-        $response = $this->userService->resetPassword(
+        $response = $this->authService->resetPassword(
             $request->only('email', 'password', 'password_confirmation', 'token')
         );
 

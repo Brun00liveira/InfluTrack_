@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Collection;
 
-class UserRepository
+class AuthRepository
 {
     protected $user;
     protected $passwordResetToken;

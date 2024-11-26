@@ -4,9 +4,6 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
-    <logging>
-        <coverage html="coverage-report" lowUpperBound="35" highLowerBound="70"/>
-    </logging>
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>

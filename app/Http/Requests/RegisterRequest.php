@@ -14,16 +14,12 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|regex:/^\d{11}$/|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ];
     }
@@ -38,6 +34,9 @@ class RegisterRequest extends FormRequest
             'password.required' => 'A senha é obrigatória.',
             'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
             'password.confirmed' => 'As senhas não coincidem.',
+            'phone.required' => 'O número de telefone é obrigatório.',
+            'phone.regex' => 'O número de telefone deve conter apenas números e ter exatamente 11 dígitos.',
+            'phone.unique' => 'Este número de telefone já está em uso.',
         ];
     }
 }
