@@ -5,12 +5,12 @@ use App\Http\Controllers\Auth\{
 };
 
 use App\Http\Controllers\{
-
     RolePermissionController
 };
 
 
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +32,8 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
     Route::post('/users/assign-role', [RolePermissionController::class, 'assignRoleToUser']);
     Route::post('/users/assign-permission', [RolePermissionController::class, 'assignPermissionToUser']);
 });
+
+Route::resource('users', UserController::class);
 
 Route::get('/phpinfo', function () {
     phpinfo();
