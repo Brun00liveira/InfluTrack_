@@ -5,13 +5,11 @@ use App\Http\Controllers\Auth\{
 };
 
 use App\Http\Controllers\{
-    RolePermissionController
+    RolePermissionController,
+    UserController,
+    WordController
 };
 
-
-
-use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/create', [AuthController::class, 'register']);
@@ -33,6 +31,7 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 });
 
 Route::resource('users', UserController::class);
+Route::resource('words', WordController::class);
 
 Route::get('/phpinfo', function () {
     phpinfo();
