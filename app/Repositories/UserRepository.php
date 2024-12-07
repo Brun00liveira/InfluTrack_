@@ -2,79 +2,69 @@
 
 namespace App\Repositories;
 
-use App\Models\PasswordResetToken;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserRepository
 {
     protected $user;
 
-    protected $passwordResetToken;
-
-    public function __construct(User $user, PasswordResetToken $passwordResetToken)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->passwordResetToken = $passwordResetToken;
     }
 
-    /**
-     * Cria um novo usuário.
-     */
-    public function create(array $data): User
+    public function getAll(int $perPage = 10, $query = null): LengthAwarePaginator|Collection
     {
-        return $this->user->create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+        // Inicia a consulta com as relações
+        $dataQuery = $this->user->newQuery();
 
-    /**
-     * Realiza o login de um usuário.
-     */
-    public function login(array $credentials): ?User
-    {
-        $user = $this->user->where('email', $credentials['email'])->first();
-
-        if (! $user || ! Hash::check($credentials['password'], $user->password)) {
-            return null;
+        if ($query && isset($query['name'])) {
+            $dataQuery->where('name', 'like', '%' . $query['name'] . '%');
+        }
+        // Verifica se a consulta inclui uma página para paginação
+        if ($query && isset($query['page'])) {
+            return $dataQuery->paginate($perPage);  // Retorna a página com o número de registros por página
         }
 
+        // Caso contrário, retorna todos os registros sem paginação
+        return $dataQuery->get();  // Usamos $dataQuery aqui para garantir que as relações sejam carregadas
+    }
+
+
+    public function findById($id): User
+    {
+        return $this->user->findOrFail($id);
+    }
+
+    public function create(array $data): User
+    {
+        return $this->user->create($data);
+    }
+
+    public function update(User $user, array $data): User
+    {
+
+        $user->update($data);
         return $user;
     }
 
-    /**
-     * Realiza o logout de um usuário.
-     */
-    public function logout(User $user): bool
+    public function delete(User $user): bool
     {
-        return $user->currentAccessToken()->delete();
+        return $user->delete();
     }
 
-    /**
-     * Envia um link para resetar a senha do usuário.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker|string
-     */
-    public function sendResetLink(array $data): string
+    public function countUser(): array
     {
-        return Password::sendResetLink(['email' => $data['email']]);
-    }
+        $users = $this->user->count();
+        $activeUser = $this->user->where('is_active', '1')->count();
+        $inativeUser = $this->user->where('is_active', '!=', '1')->count();
 
-    /**
-     * Reseta a senha de um usuário.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker|string
-     */
-    public function resetPassword(array $data): string
-    {
-        return Password::reset($data, function (User $user, $password) {
-            $user->forceFill([
-                'password' => Hash::make($password),
-            ])->save();
-        });
+        return [
+            'totalUsers' => $users,
+            'inativeUsers' => $inativeUser,
+            'activeUser' => $activeUser,
+        ];
     }
 }

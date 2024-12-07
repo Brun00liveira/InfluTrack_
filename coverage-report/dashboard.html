@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\projeto\influTrack\api\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.7" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.7" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.7" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\projeto\influTrack\api\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#14">App\Http\Controllers\Auth\AuthController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#11">App\Http\Controllers\RolePermissionController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#11">App\Http\Middleware\AdminMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/UserMiddleware.php.html#10">App\Http\Middleware\UserMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#7">App\Http\Requests\LoginRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#7">App\Http\Requests\RegisterRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ResetPasswordRequest.php.html#7">App\Http\Requests\ResetPasswordRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionNameRequest.php.html#7">App\Http\Requests\RolePermissionNameRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionRequest.php.html#7">App\Http\Requests\RolePermissionRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserPermissionRequest.php.html#7">App\Http\Requests\UserPermissionRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRoleRequest.php.html#7">App\Http\Requests\UserRoleRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/PasswordResetToken.php.html#7">App\Models\PasswordResetToken</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#12">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#7">App\Providers\AppServiceProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#11">App\Repositories\RolePermissionRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#11">App\Repositories\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#10">App\Services\RolePermissionService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#9">App\Services\UserService</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Services/RolePermissionService.php.html#10">App\Services\RolePermissionService</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#11">App\Http\Controllers\RolePermissionController</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#14">App\Http\Controllers\Auth\AuthController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#11">App\Repositories\UserRepository</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Services/UserService.php.html#9">App\Services\UserService</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#11">App\Http\Middleware\AdminMiddleware</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/UserMiddleware.php.html#10">App\Http\Middleware\UserMiddleware</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#18"><abbr title="App\Http\Controllers\Auth\AuthController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#29"><abbr title="App\Http\Controllers\Auth\AuthController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#50"><abbr title="App\Http\Controllers\Auth\AuthController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#65"><abbr title="App\Http\Controllers\Auth\AuthController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#83"><abbr title="App\Http\Controllers\Auth\AuthController::sendResetLinkEmail">sendResetLinkEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#96"><abbr title="App\Http\Controllers\Auth\AuthController::reset">reset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#15"><abbr title="App\Http\Controllers\RolePermissionController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#26"><abbr title="App\Http\Controllers\RolePermissionController::createRole">createRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#42"><abbr title="App\Http\Controllers\RolePermissionController::createPermission">createPermission</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#58"><abbr title="App\Http\Controllers\RolePermissionController::assignPermissionToRole">assignPermissionToRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#75"><abbr title="App\Http\Controllers\RolePermissionController::assignRoleToUser">assignRoleToUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#92"><abbr title="App\Http\Controllers\RolePermissionController::assignPermissionToUser">assignPermissionToUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#18"><abbr title="App\Http\Middleware\AdminMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/UserMiddleware.php.html#17"><abbr title="App\Http\Middleware\UserMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#12"><abbr title="App\Http\Requests\LoginRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#22"><abbr title="App\Http\Requests\LoginRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/LoginRequest.php.html#30"><abbr title="App\Http\Requests\LoginRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#12"><abbr title="App\Http\Requests\RegisterRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#22"><abbr title="App\Http\Requests\RegisterRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RegisterRequest.php.html#31"><abbr title="App\Http\Requests\RegisterRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ResetPasswordRequest.php.html#12"><abbr title="App\Http\Requests\ResetPasswordRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ResetPasswordRequest.php.html#22"><abbr title="App\Http\Requests\ResetPasswordRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ResetPasswordRequest.php.html#34"><abbr title="App\Http\Requests\ResetPasswordRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionNameRequest.php.html#12"><abbr title="App\Http\Requests\RolePermissionNameRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionNameRequest.php.html#22"><abbr title="App\Http\Requests\RolePermissionNameRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionNameRequest.php.html#29"><abbr title="App\Http\Requests\RolePermissionNameRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionRequest.php.html#12"><abbr title="App\Http\Requests\RolePermissionRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionRequest.php.html#22"><abbr title="App\Http\Requests\RolePermissionRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/RolePermissionRequest.php.html#30"><abbr title="App\Http\Requests\RolePermissionRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserPermissionRequest.php.html#12"><abbr title="App\Http\Requests\UserPermissionRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserPermissionRequest.php.html#22"><abbr title="App\Http\Requests\UserPermissionRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserPermissionRequest.php.html#30"><abbr title="App\Http\Requests\UserPermissionRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRoleRequest.php.html#12"><abbr title="App\Http\Requests\UserRoleRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRoleRequest.php.html#22"><abbr title="App\Http\Requests\UserRoleRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UserRoleRequest.php.html#30"><abbr title="App\Http\Requests\UserRoleRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/PasswordResetToken.php.html#17"><abbr title="App\Models\PasswordResetToken::getTokenByEmail">getTokenByEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#54"><abbr title="App\Models\User::casts">casts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#12"><abbr title="App\Providers\AppServiceProvider::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#20"><abbr title="App\Providers\AppServiceProvider::boot">boot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#17"><abbr title="App\Repositories\RolePermissionRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#30"><abbr title="App\Repositories\RolePermissionRepository::createRole">createRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#41"><abbr title="App\Repositories\RolePermissionRepository::createPermission">createPermission</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#53"><abbr title="App\Repositories\RolePermissionRepository::assignPermissionToRole">assignPermissionToRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#64"><abbr title="App\Repositories\RolePermissionRepository::getRoleByName">getRoleByName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#76"><abbr title="App\Repositories\RolePermissionRepository::getRoleByNameAndGuard">getRoleByNameAndGuard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#90"><abbr title="App\Repositories\RolePermissionRepository::getPermissionByNameAndGuard">getPermissionByNameAndGuard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/RolePermissionRepository.php.html#103"><abbr title="App\Repositories\RolePermissionRepository::getUserById">getUserById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#16"><abbr title="App\Repositories\UserRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#28"><abbr title="App\Repositories\UserRepository::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#44"><abbr title="App\Repositories\UserRepository::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#61"><abbr title="App\Repositories\UserRepository::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#72"><abbr title="App\Repositories\UserRepository::sendResetLink">sendResetLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#83"><abbr title="App\Repositories\UserRepository::resetPassword">resetPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#14"><abbr title="App\Services\RolePermissionService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#25"><abbr title="App\Services\RolePermissionService::createRole">createRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#36"><abbr title="App\Services\RolePermissionService::createPermission">createPermission</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#48"><abbr title="App\Services\RolePermissionService::assignPermissionToRole">assignPermissionToRole</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#65"><abbr title="App\Services\RolePermissionService::assignRoleToUser">assignRoleToUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#84"><abbr title="App\Services\RolePermissionService::assignPermissionToUser">assignPermissionToUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#13"><abbr title="App\Services\UserService::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#24"><abbr title="App\Services\UserService::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#35"><abbr title="App\Services\UserService::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#46"><abbr title="App\Services\UserService::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#57"><abbr title="App\Services\UserService::sendResetLink">sendResetLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/UserService.php.html#74"><abbr title="App\Services\UserService::resetPassword">resetPassword</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#18"><abbr title="App\Http\Middleware\AdminMiddleware::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/UserMiddleware.php.html#17"><abbr title="App\Http\Middleware\UserMiddleware::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repositories/UserRepository.php.html#44"><abbr title="App\Repositories\UserRepository::login">login</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#65"><abbr title="App\Services\RolePermissionService::assignRoleToUser">assignRoleToUser</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#84"><abbr title="App\Services\RolePermissionService::assignPermissionToUser">assignPermissionToUser</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#29"><abbr title="App\Http\Controllers\Auth\AuthController::login">login</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthController.php.html#65"><abbr title="App\Http\Controllers\Auth\AuthController::logout">logout</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#58"><abbr title="App\Http\Controllers\RolePermissionController::assignPermissionToRole">assignPermissionToRole</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#75"><abbr title="App\Http\Controllers\RolePermissionController::assignRoleToUser">assignRoleToUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/RolePermissionController.php.html#92"><abbr title="App\Http\Controllers\RolePermissionController::assignPermissionToUser">assignPermissionToUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Services/RolePermissionService.php.html#48"><abbr title="App\Services\RolePermissionService::assignPermissionToRole">assignPermissionToRole</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Services/UserService.php.html#57"><abbr title="App\Services\UserService::sendResetLink">sendResetLink</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Services/UserService.php.html#74"><abbr title="App\Services\UserService::resetPassword">resetPassword</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.7</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.12</a> and <a href="https://phpunit.de/">PHPUnit 11.4.3</a> at Tue Nov 26 9:58:32 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.7" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.7" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.7" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([18,0,0,0,0,0,0,0,0,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([65,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,8,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#14\">App\\Http\\Controllers\\Auth\\AuthController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#5\">App\\Http\\Controllers\\Controller<\/a>"],[0,9,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#11\">App\\Http\\Controllers\\RolePermissionController<\/a>"],[0,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#11\">App\\Http\\Middleware\\AdminMiddleware<\/a>"],[0,3,"<a href=\"Http\/Middleware\/UserMiddleware.php.html#10\">App\\Http\\Middleware\\UserMiddleware<\/a>"],[0,3,"<a href=\"Http\/Requests\/LoginRequest.php.html#7\">App\\Http\\Requests\\LoginRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/RegisterRequest.php.html#7\">App\\Http\\Requests\\RegisterRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/ResetPasswordRequest.php.html#7\">App\\Http\\Requests\\ResetPasswordRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/RolePermissionNameRequest.php.html#7\">App\\Http\\Requests\\RolePermissionNameRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/RolePermissionRequest.php.html#7\">App\\Http\\Requests\\RolePermissionRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/UserPermissionRequest.php.html#7\">App\\Http\\Requests\\UserPermissionRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/UserRoleRequest.php.html#7\">App\\Http\\Requests\\UserRoleRequest<\/a>"],[0,1,"<a href=\"Models\/PasswordResetToken.php.html#7\">App\\Models\\PasswordResetToken<\/a>"],[0,1,"<a href=\"Models\/User.php.html#12\">App\\Models\\User<\/a>"],[0,2,"<a href=\"Providers\/AppServiceProvider.php.html#7\">App\\Providers\\AppServiceProvider<\/a>"],[0,8,"<a href=\"Repositories\/RolePermissionRepository.php.html#11\">App\\Repositories\\RolePermissionRepository<\/a>"],[0,8,"<a href=\"Repositories\/UserRepository.php.html#11\">App\\Repositories\\UserRepository<\/a>"],[0,11,"<a href=\"Services\/RolePermissionService.php.html#10\">App\\Services\\RolePermissionService<\/a>"],[0,8,"<a href=\"Services\/UserService.php.html#9\">App\\Services\\UserService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#18\">App\\Http\\Controllers\\Auth\\AuthController::__construct<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#29\">App\\Http\\Controllers\\Auth\\AuthController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#50\">App\\Http\\Controllers\\Auth\\AuthController::register<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#65\">App\\Http\\Controllers\\Auth\\AuthController::logout<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#83\">App\\Http\\Controllers\\Auth\\AuthController::sendResetLinkEmail<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthController.php.html#96\">App\\Http\\Controllers\\Auth\\AuthController::reset<\/a>"],[0,1,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#15\">App\\Http\\Controllers\\RolePermissionController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#26\">App\\Http\\Controllers\\RolePermissionController::createRole<\/a>"],[0,1,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#42\">App\\Http\\Controllers\\RolePermissionController::createPermission<\/a>"],[0,2,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#58\">App\\Http\\Controllers\\RolePermissionController::assignPermissionToRole<\/a>"],[0,2,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#75\">App\\Http\\Controllers\\RolePermissionController::assignRoleToUser<\/a>"],[0,2,"<a href=\"Http\/Controllers\/RolePermissionController.php.html#92\">App\\Http\\Controllers\\RolePermissionController::assignPermissionToUser<\/a>"],[0,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#18\">App\\Http\\Middleware\\AdminMiddleware::handle<\/a>"],[0,3,"<a href=\"Http\/Middleware\/UserMiddleware.php.html#17\">App\\Http\\Middleware\\UserMiddleware::handle<\/a>"],[0,1,"<a href=\"Http\/Requests\/LoginRequest.php.html#12\">App\\Http\\Requests\\LoginRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/LoginRequest.php.html#22\">App\\Http\\Requests\\LoginRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/LoginRequest.php.html#30\">App\\Http\\Requests\\LoginRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#12\">App\\Http\\Requests\\RegisterRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#22\">App\\Http\\Requests\\RegisterRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/RegisterRequest.php.html#31\">App\\Http\\Requests\\RegisterRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/ResetPasswordRequest.php.html#12\">App\\Http\\Requests\\ResetPasswordRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/ResetPasswordRequest.php.html#22\">App\\Http\\Requests\\ResetPasswordRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/ResetPasswordRequest.php.html#34\">App\\Http\\Requests\\ResetPasswordRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionNameRequest.php.html#12\">App\\Http\\Requests\\RolePermissionNameRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionNameRequest.php.html#22\">App\\Http\\Requests\\RolePermissionNameRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionNameRequest.php.html#29\">App\\Http\\Requests\\RolePermissionNameRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionRequest.php.html#12\">App\\Http\\Requests\\RolePermissionRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionRequest.php.html#22\">App\\Http\\Requests\\RolePermissionRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/RolePermissionRequest.php.html#30\">App\\Http\\Requests\\RolePermissionRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserPermissionRequest.php.html#12\">App\\Http\\Requests\\UserPermissionRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserPermissionRequest.php.html#22\">App\\Http\\Requests\\UserPermissionRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserPermissionRequest.php.html#30\">App\\Http\\Requests\\UserPermissionRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserRoleRequest.php.html#12\">App\\Http\\Requests\\UserRoleRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserRoleRequest.php.html#22\">App\\Http\\Requests\\UserRoleRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UserRoleRequest.php.html#30\">App\\Http\\Requests\\UserRoleRequest::messages<\/a>"],[0,1,"<a href=\"Models\/PasswordResetToken.php.html#17\">App\\Models\\PasswordResetToken::getTokenByEmail<\/a>"],[0,1,"<a href=\"Models\/User.php.html#54\">App\\Models\\User::casts<\/a>"],[0,1,"<a href=\"Providers\/AppServiceProvider.php.html#12\">App\\Providers\\AppServiceProvider::register<\/a>"],[0,1,"<a href=\"Providers\/AppServiceProvider.php.html#20\">App\\Providers\\AppServiceProvider::boot<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#17\">App\\Repositories\\RolePermissionRepository::__construct<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#30\">App\\Repositories\\RolePermissionRepository::createRole<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#41\">App\\Repositories\\RolePermissionRepository::createPermission<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#53\">App\\Repositories\\RolePermissionRepository::assignPermissionToRole<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#64\">App\\Repositories\\RolePermissionRepository::getRoleByName<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#76\">App\\Repositories\\RolePermissionRepository::getRoleByNameAndGuard<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#90\">App\\Repositories\\RolePermissionRepository::getPermissionByNameAndGuard<\/a>"],[0,1,"<a href=\"Repositories\/RolePermissionRepository.php.html#103\">App\\Repositories\\RolePermissionRepository::getUserById<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#16\">App\\Repositories\\UserRepository::__construct<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#28\">App\\Repositories\\UserRepository::create<\/a>"],[0,3,"<a href=\"Repositories\/UserRepository.php.html#44\">App\\Repositories\\UserRepository::login<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#61\">App\\Repositories\\UserRepository::logout<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#72\">App\\Repositories\\UserRepository::sendResetLink<\/a>"],[0,1,"<a href=\"Repositories\/UserRepository.php.html#83\">App\\Repositories\\UserRepository::resetPassword<\/a>"],[0,1,"<a href=\"Services\/RolePermissionService.php.html#14\">App\\Services\\RolePermissionService::__construct<\/a>"],[0,1,"<a href=\"Services\/RolePermissionService.php.html#25\">App\\Services\\RolePermissionService::createRole<\/a>"],[0,1,"<a href=\"Services\/RolePermissionService.php.html#36\">App\\Services\\RolePermissionService::createPermission<\/a>"],[0,2,"<a href=\"Services\/RolePermissionService.php.html#48\">App\\Services\\RolePermissionService::assignPermissionToRole<\/a>"],[0,3,"<a href=\"Services\/RolePermissionService.php.html#65\">App\\Services\\RolePermissionService::assignRoleToUser<\/a>"],[0,3,"<a href=\"Services\/RolePermissionService.php.html#84\">App\\Services\\RolePermissionService::assignPermissionToUser<\/a>"],[0,1,"<a href=\"Services\/UserService.php.html#13\">App\\Services\\UserService::__construct<\/a>"],[0,1,"<a href=\"Services\/UserService.php.html#24\">App\\Services\\UserService::create<\/a>"],[0,1,"<a href=\"Services\/UserService.php.html#35\">App\\Services\\UserService::login<\/a>"],[0,1,"<a href=\"Services\/UserService.php.html#46\">App\\Services\\UserService::logout<\/a>"],[0,2,"<a href=\"Services\/UserService.php.html#57\">App\\Services\\UserService::sendResetLink<\/a>"],[0,2,"<a href=\"Services\/UserService.php.html#74\">App\\Services\\UserService::resetPassword<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
